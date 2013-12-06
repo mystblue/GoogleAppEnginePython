@@ -20,6 +20,22 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
 
+class Page1Handler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Page1')
+
+class LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Login')
+
+class CLoginHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Login')
+
+class C1LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        self.redirect('')
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler), ('/Page1', Page1Handler), ('/connectonesp/Login.do', CLoginHandler), ('/Login.do', LoginHandler)
 ], debug=True)
